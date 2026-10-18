@@ -1,13 +1,14 @@
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://shivendra.ai"),
+  verification: { google: "AwhqQnQP9iHFAp8nahc5wMk9bIC7jN4AK1eK_-mBIVk" },
+  metadataBase: new URL("https://www.shivendra.ai"),
   title: {
     default: "Shivendra Pratap Singh | AI Implementation Consultant & Builder",
     template: "%s | Shivendra Pratap Singh"
   },
   description:
-    "Practical AI consulting for people operations, internal knowledge and business workflows. Explore the approach and discuss your AI use case.",
+    "Shivendra Pratap Singh, Chief People Officer at Ergode and AI practitioner in Mumbai. AI implementation, workplace tools, finance automation and team adoption.",
   keywords: [
     "Shivendra Pratap Singh",
     "Shivendra.ai",
@@ -23,7 +24,7 @@ export const metadata = {
     title: "Shivendra Pratap Singh | AI Implementation Consultant & Builder",
     description:
       "Turn AI opportunities into practical solutions with Shivendra Pratap Singh.",
-    url: "https://shivendra.ai",
+    url: "https://www.shivendra.ai",
     siteName: "Shivendra.ai",
     images: [
       {
@@ -44,7 +45,7 @@ export const metadata = {
     images: ["/images/hero-profile.jpg"]
   },
   alternates: {
-    canonical: "https://shivendra.ai"
+    canonical: "https://www.shivendra.ai"
   }
 };
 

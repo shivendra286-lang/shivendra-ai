@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://shivendra.ai/sitemap.xml"
+    sitemap: "https://www.shivendra.ai/sitemap.xml"
   };
 }

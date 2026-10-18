@@ -1,10 +1,1 @@
-export default function sitemap() {
-  return [
-    {
-      url: "https://shivendra.ai",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1
-    }
-  ];
-}
+export default function sitemap() { return ["", "/about", "/ai-implementation", "/insights/agentic-ai-workflows"].map(path => ({ url: `https://www.shivendra.ai${path || "/"}`, lastModified: "2026-10-18", changeFrequency: path ? "monthly" : "weekly", priority: path ? 0.7 : 1 })); }
