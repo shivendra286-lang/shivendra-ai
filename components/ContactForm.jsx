@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const purposes = ["Speaking", "Consulting", "Collaboration"];
+const purposes = ["AI implementation", "Workflow discovery", "Team enablement", "Speaking", "Collaboration"];
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -59,7 +59,7 @@ export default function ContactForm() {
     } catch {
       setStatus({
         type: "error",
-        message: "Something went wrong. Please try again or email directly."
+        message: "Your inquiry could not be sent. Please try again, or use the LinkedIn link alongside this form."
       });
     } finally {
       setSubmitting(false);
@@ -99,7 +99,7 @@ export default function ContactForm() {
         </select>
       </label>
       <label>
-        <span>Message</span>
+        <span>What workflow would you like to improve?</span>
         <textarea
           required
           name="message"
@@ -118,8 +118,7 @@ export default function ContactForm() {
         </p>
       ) : null}
       <p className="form-helper">
-        For speaking, podcasts, university sessions, AI-in-HR discussions, or
-        collaboration inquiries.
+        Please share only a high-level description. Do not include confidential company, employee or customer data. Your details will be used to respond to this inquiry.
       </p>
     </form>
   );

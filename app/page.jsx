@@ -1,323 +1,55 @@
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
+import SocialLinks from "@/components/SocialLinks";
 import PresenceGallery from "@/components/PresenceGallery";
 import QuoteCarousel from "@/components/QuoteCarousel";
-import Reveal from "@/components/Reveal";
-import {
-  builds,
-  media,
-  mentions,
-  navigation,
-  presenceGallery,
-  socials,
-  stats,
-  writings
-} from "@/lib/siteData";
+import Motion from "@/components/Motion";
+import ContactForm from "@/components/ContactForm";
+import { socials, media, mentions, presenceGallery, writings, builds } from "@/lib/siteData";
 
-const ArrowIcon = () => (
-  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-    <path d="M6 4l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" />
-  </svg>
-);
-
-const PlayIcon = () => (
-  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-    <path d="M6 4.5v11l8.5-5.5L6 4.5z" fill="currentColor" />
-  </svg>
-);
-
+const services = [
+  ["01", "Find the right problem.", "AI opportunity mapping", "Start with a workflow that matters. Assess where AI can help, what data it needs, and what a useful result would look like.", "Workflow map · Prioritised use cases · Pilot scope"],
+  ["02", "Build something useful.", "Prototyping & implementation", "Turn a focused use case into a working prototype. Test it against real tasks, include human review, and learn before expanding.", "Working prototype · Evaluation criteria · Rollout plan"],
+  ["03", "Make it part of the work.", "Adoption & enablement", "Give teams the context, skills and ownership to use the solution. Build a practical feedback loop around quality and adoption.", "Team enablement · Documentation · Measurement plan"]
+];
 export default function Home() {
-  return (
-    <main>
-      <header className="site-header" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Shivendra.ai home">
-          Shivendra.ai
-        </a>
-        <nav>
-          {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </header>
+  return <>
+    <Motion/>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <header className="site-header"><a className="brand" href="#top">Shivendra<span>.ai</span></a><nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#builds">Builds</a><a href="#presence">Presence</a><a href="#writing">Writing</a><a href="#media">Podcast</a><a href="#about">About</a></nav><a className="nav-cta" href="#contact">Let’s build <span aria-hidden="true">↗</span></a></header>
+    <main id="main">
+      <section id="top" className="heritage-hero" aria-labelledby="hero-name">
+        <Image className="heritage-image" src="/images/hero-profile.jpg" alt="Portrait of Shivendra Pratap Singh" fill priority sizes="100vw"/>
+        <div className="heritage-overlay"/>
+        <div className="heritage-content">
 
-      <section id="top" className="hero" aria-labelledby="hero-title">
-        <Image
-          className="hero-image"
-          src="/images/hero-profile.jpg"
-          alt="Portrait of Shivendra Pratap Singh"
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="hero-overlay" />
-        <div className="hero-content hero-centered">
-          <Reveal>
-            <p className="eyebrow">Shivendra.ai</p>
-            <h1 id="hero-title" className="hero-name">
-              Shivendra Pratap Singh
-            </h1>
-            <p className="hero-heading">
-              Building High-Performance Organizations in the Age of AI
-            </p>
-            <p className="hero-subtitle">
-              Chief People Officer | Speaker | AI-in-HR Thought Leader
-            </p>
-            <div className="hero-actions" aria-label="Primary actions">
-              <a className="button button-primary" href="#contact">
-                Invite to Speak
-                <ArrowIcon />
-              </a>
-              <a className="button button-secondary" href="#presence">
-                View Presence
-                <ArrowIcon />
-              </a>
-            </div>
-            <div className="hero-strip">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+          <h1 id="hero-name">Shivendra Pratap<br/>Singh</h1>
+          <p className="heritage-heading">Building organisations.<br/>Putting AI to work.</p>
+          <p className="heritage-subtitle">Chief People Officer · AI Practitioner & Builder · Speaker</p>
+          <p className="heritage-description">From people and workplace systems to finance automation, I turn business problems into practical AI initiatives—with execution, adoption and human judgment at the centre.</p>
+          <div className="hero-actions"><a className="button button-primary" href="#builds">Explore my work <span aria-hidden="true">↗</span></a><a className="button button-secondary" href="#contact">Discuss your AI use case <span aria-hidden="true">↗</span></a></div>
+          <div className="heritage-strip"><div><strong>Operator</strong><span>People, culture & organisation design</span></div><div><strong>AI Builder</strong><span>Workplace tools & business automation</span></div><div><strong>Speaker</strong><span>AI, leadership & the future of work</span></div></div>
         </div>
       </section>
-
-      <section id="about" className="section about-section">
-        <div className="about-layout">
-          <Reveal>
-            <div className="about-portrait">
-              <Image
-                src="/images/about-profile.jpg"
-                alt="Portrait of Shivendra Pratap Singh"
-                fill
-                sizes="(min-width: 980px) 36vw, 100vw"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="about-copy">
-              <p className="section-kicker">About</p>
-              <h2>Calm judgment. Systems thinking. Leadership that scales.</h2>
-              <div className="prose">
-                <p>
-                  Shivendra Pratap Singh is Chief People Officer at Ergode, where he
-                  works across people strategy, global operations, leadership
-                  capability, and organization design.
-                </p>
-                <p>
-                  His work sits at the intersection of HR, AI, and execution:
-                  helping organizations build sharper cultures, stronger managers,
-                  and practical adoption paths for emerging technology.
-                </p>
-                <p>
-                  He is known for translating complexity into operating rhythm,
-                  creating people systems that are thoughtful, modern, and grounded
-                  in real business outcomes.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
+      <div className="principle-bar"><div className="wrap"><span>THE STARTING POINT</span><p>The future belongs to those who build it.</p><span aria-hidden="true">↘</span></div></div>
+      <section id="services" className="section wrap"><div className="section-heading"><div><p className="eyebrow">01 / HOW I CAN HELP</p><h2>The distance between<br/>potential <em>and practice.</em></h2></div><p>Start with one meaningful workflow. Build the smallest useful solution. Expand when the evidence supports it.</p></div><div className="services-grid">{services.map(([n,title,label,description,output])=><article className="service" key={n}><span className="number">{n}</span><p className="eyebrow">{label}</p><h3>{title}</h3><p>{description}</p><div className="deliverables"><span>WHAT WE WORK TOWARD</span>{output}</div></article>)}</div></section>
+      <section id="builds" className="builds-section"><div className="wrap section"><div className="section-heading"><div><p className="eyebrow">02 / THE BUILDING BLOCKS</p><h2>Ideas into systems.<br/><em>Across the business.</em></h2></div><p>Work spanning people operations, workplace intelligence, conversational tools and finance automation. A portfolio shaped by real operating needs.</p></div><div className="project-portfolio">
+        <article className="portfolio-card"><div className="project-label"><span>01 / WORKPLACE INTELLIGENCE</span><span className="status">INTERNAL TOOL</span></div><div className="project-symbol" aria-hidden="true">W<span>i</span></div><h3>WorkIntel</h3><p className="project-deck">Making work visible. Making conversations more informed.</p><p>My work on an internal workplace intelligence tool spans the build and rollout journey, including employee onboarding and organisational data setup.</p><dl><div><dt>Focus</dt><dd>Workflows, employee inputs and work scorecards.</dd></div><div><dt>My involvement</dt><dd>Shaping requirements, guiding iterations and working through practical rollout issues.</dd></div></dl></article>
+        <article className="portfolio-card"><div className="project-label"><span>02 / CONVERSATIONAL TOOLS</span><span className="status">PROJECT EXPERIENCE</span></div><div className="project-symbol conversation-symbol" aria-hidden="true">“<span>”</span></div><h3>Workplace chatbot</h3><p className="project-deck">A conversational approach to everyday work.</p><p>I have worked on a chatbot for the workplace, bringing business context into the design of a conversational tool.</p><dl><div><dt>Focus</dt><dd>Applying conversational AI to a workplace use case.</dd></div><div><dt>My involvement</dt><dd>Hands-on project work informed by the needs of the organisation.</dd></div></dl></article>
+        <article className="portfolio-card"><div className="project-label"><span>03 / FINANCE OPERATIONS</span><span className="status">CROSS-FUNCTIONAL WORK</span></div><div className="project-symbol" aria-hidden="true">ƒ<span>↗</span></div><h3>Finance automation</h3><p className="project-deck">Taking automation beyond the people function.</p><p>I helped my CFO automate selected finance tasks, working across functions to apply automation to day-to-day business needs.</p><dl><div><dt>Focus</dt><dd>Selected workflows within finance operations.</dd></div><div><dt>My involvement</dt><dd>Supporting the CFO with practical automation work.</dd></div></dl></article>
+      </div><div id="ideas" className="additional-builds">{builds.slice(1).map(item=><article key={item.title}><p className="eyebrow">IDEAS & FRAMEWORKS</p><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div></section>
+      <section className="wrap technology-perspective" aria-labelledby="technology-title"><div><p className="eyebrow">EXPLORING WHAT’S NEXT</p><h2 id="technology-title">New capabilities.<br/><em>Practical questions.</em></h2><p className="technology-intro">Areas I’m exploring through a business lens: where they help, what they require, and when they are worth using.</p></div><dl><div><dt>Agentic AI systems</dt><dd>How can connected tools and multi-step workflows move from answering questions to taking useful actions—with clear permissions, human approval and evaluation?</dd></div><div><dt>GPU computing</dt><dd>When does an AI use case justify dedicated compute, and how should cost, speed and deployment choices shape the decision?</dd></div><div><dt>CGI & AI-assisted visual creation</dt><dd>Where can computer-generated imagery and AI-assisted creative workflows support communication, learning and product storytelling?</dd></div></dl></section>
+      <section id="approach" className="section wrap"><div className="section-heading"><div><p className="eyebrow">03 / THE APPROACH</p><h2>Deliberate by design.<br/><em>Practical by default.</em></h2></div><p>Define success before choosing tools. Keep the people who do the work involved throughout.</p></div><ol className="process">{[["Understand", "Map the workflow, its users, constraints and current baseline."],["Build", "Create a focused prototype with clear boundaries and human review."],["Evaluate", "Check quality, failure cases and usefulness against agreed criteria."],["Embed", "Plan ownership, documentation, training and ongoing measurement."]].map(([title,body],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol></section>
+      <section id="about" className="about-section wrap"><div className="about-image"><Image src="/images/about-profile.jpg" alt="Portrait of Shivendra Pratap Singh" fill sizes="(max-width: 760px) 90vw, 35vw"/></div><div className="about-copy"><p className="eyebrow">04 / THE OPERATOR’S PERSPECTIVE</p><h2>The human side<br/>of <em>intelligent systems.</em></h2><p>My background is in people leadership, organisation design and the realities of getting work done. That is the perspective I bring to applied AI.</p><p>As Chief People Officer at Ergode, my work spans people strategy, leadership capability and organisation design. My interest in AI starts with how it can make everyday work more useful, thoughtful and effective.</p><a className="text-link" href={socials[0].href} target="_blank" rel="noopener noreferrer">More about my background <span aria-hidden="true">↗</span></a></div></section>
+      <section id="presence" className="section wrap credibility-section"><div className="section-heading"><div><p className="eyebrow">PUBLIC PRESENCE & RECOGNITION</p><h2>In the room.<br/><em>Part of the conversation.</em></h2></div><p>Selected moments from industry forums, university sessions and leadership recognition—alongside the work of building.</p></div>
+        <div className="recent-events"><article><div className="event-photo"><Image src="/images/iim-raipur-panel.jpeg" alt="Shivendra speaking on stage at IIM Raipur" fill sizes="(max-width:760px) 90vw, 55vw"/></div><div className="event-copy"><span className="eyebrow">IIM RAIPUR / 10TH HR SUMMIT 2026</span><h3>AI and humans, working together.</h3><p>Conversations on people, AI and the future of work at IIM Raipur.</p><a className="text-link" href="https://www.linkedin.com/posts/indian-institute-of-management-raipur_hr-summit-2026-panel-6-activity-7492177941511106560-jEzy" target="_blank" rel="noopener noreferrer">View IIM Raipur’s LinkedIn post ↗</a></div></article><article><div className="event-photo edunet-photo"><Image src="/images/edunet-panel.jpeg" alt="Shivendra speaking at the EduNet HR Conclave" fill sizes="(max-width:760px) 90vw, 35vw"/></div><div className="event-copy"><span className="eyebrow">EDUNET / HR CONCLAVE 2026</span><h3>Perspectives from practice.</h3><p>Joining the dialogue on people and leadership at the EduNet HR Conclave.</p></div></article></div>
+        <PresenceGallery items={[...presenceGallery,{title:"IIM Raipur",caption:"A moment of recognition at the HR Summit.",image:"/images/iim-raipur-recognition.png",alt:"Shivendra receiving a bouquet at IIM Raipur",objectPosition:"center 40%"},{title:"EduNet HR Conclave",caption:"Among peers and practitioners at the 2026 conclave.",image:"/images/edunet-conclave.jpeg",alt:"Shivendra at the EduNet HR Conclave",objectPosition:"center 35%"},{title:"IIM Raipur · On stage",caption:"Recognition and exchange with fellow leaders.",image:"/images/iim-raipur-stage.jpeg",alt:"Shivendra on stage at IIM Raipur",objectPosition:"center 56%"}]}/>
       </section>
-
-      <section id="presence" className="section presence-section">
-        <div className="section-heading section-heading-wide">
-          <Reveal>
-            <p className="section-kicker">Public Presence</p>
-            <h2>Proof of stage presence, credibility, and recognition.</h2>
-            <p className="section-intro">
-              Selected moments across conferences, panel discussions, and leadership
-              recognition. Curated to show range without turning the homepage into a
-              gallery.
-            </p>
-          </Reveal>
-        </div>
-        <Reveal delay={80}>
-          <PresenceGallery items={presenceGallery} />
-        </Reveal>
-      </section>
-
-      <section id="writing" className="section writing-section">
-        <div className="section-grid">
-          <Reveal>
-            <p className="section-kicker">Articles & Thought Leadership</p>
-            <h2>Clear thinking on AI, culture, and the people function.</h2>
-          </Reveal>
-          <div className="stack">
-            <Reveal delay={80}>
-              <div className="list-block">
-                <div className="list-header">
-                  <h3>Shivendra&apos;s Writings</h3>
-                  <span>Selected essays</span>
-                </div>
-                {writings.map((item) => (
-                  <article className="text-card" key={item.title}>
-                    <time>{item.date}</time>
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p>{item.description}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={140}>
-              <div className="list-block warm">
-                <div className="list-header">
-                  <h3>Featured Mentions</h3>
-                  <span>Public signals</span>
-                </div>
-                {mentions.map((item) => (
-                  <article className="text-card" key={item.title}>
-                    <time>{item.source}</time>
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p>{item.description}</p>
-                      {item.href ? (
-                        <a
-                          className="mention-link"
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item.cta}
-                          <ArrowIcon />
-                        </a>
-                      ) : null}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section id="media" className="section media-section">
-        <div className="section-heading compact">
-          <Reveal>
-            <p className="section-kicker">Podcasts & Media</p>
-            <h2>Conversations on AI, talent, and the future of HR.</h2>
-          </Reveal>
-        </div>
-        {media.map((item) => (
-          <Reveal key={item.title}>
-            <article className="featured-media-card">
-              <div className="featured-media-copy">
-                <span className="media-icon" aria-hidden="true">
-                  <PlayIcon />
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-              <div className="featured-media-actions">
-                <a
-                  className="button button-primary"
-                  href={item.primaryLink.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.primaryLink.label}
-                  <PlayIcon />
-                </a>
-                <div className="featured-secondary-actions">
-                  {item.secondaryLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      className="button button-secondary media-secondary-button"
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-                <div className="platform-pills">
-                  {item.tertiaryLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      className="platform-pill"
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </section>
-
-      <section id="ideas" className="section ideas-section">
-        <div className="section-heading compact">
-          <Reveal>
-            <p className="section-kicker">Ideas & Builds</p>
-            <h2>Builder energy behind the people agenda.</h2>
-          </Reveal>
-        </div>
-        <div className="ideas-grid">
-          {builds.map((item, index) => (
-            <Reveal key={item.title} delay={index * 90}>
-              <article className="idea-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="quote-section" aria-label="Leadership philosophy">
-        <Reveal>
-          <QuoteCarousel />
-        </Reveal>
-      </section>
-
-      <section id="contact" className="section contact-section">
-        <div className="contact-layout">
-          <Reveal>
-            <p className="section-kicker">Contact / Speaking</p>
-            <h2>Let&apos;s Work Together</h2>
-            <p className="contact-copy">
-              For speaking, consulting, or collaboration inquiries, share the
-              context and the outcome you want the room to leave with.
-            </p>
-            <div className="contact-options" aria-label="Ways to work together">
-              <span>Speaking</span>
-              <span>Consulting</span>
-              <span>Collaboration</span>
-            </div>
-          </Reveal>
-          <Reveal delay={140}>
-            <ContactForm />
-          </Reveal>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <strong>Shivendra Pratap Singh</strong>
-        <div>
-          {socials.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {social.label}
-            </a>
-          ))}
-        </div>
-        <span>© {new Date().getFullYear()} Shivendra.ai</span>
-      </footer>
-    </main>
-  );
+      <section id="writing" className="section writing-restored"><div className="wrap writing-layout"><div><p className="eyebrow">ARTICLES & THOUGHT LEADERSHIP</p><h2>Clear thinking.<br/><em>Grounded in work.</em></h2><p className="section-intro">Perspectives on AI, culture and the people function.</p><a className="text-link" href={socials[0].href} target="_blank" rel="noopener noreferrer">Follow my writing on LinkedIn ↗</a></div><div><div className="writing-list"><h3>Shivendra’s Writings</h3>{writings.map(item=><article key={item.title}><span>{item.date}</span><div><h4>{item.title}</h4><p>{item.description}</p></div></article>)}</div><div className="recognition-note"><p className="eyebrow">FEATURED MENTIONS</p>{mentions.map(item=><article key={item.title}><h3>{item.title}</h3><p>{item.description}</p><a className="text-link" href={item.href} target="_blank" rel="noopener noreferrer">{item.cta} ↗</a></article>)}</div></div></div></section>
+      <section id="media" className="section wrap podcast-section"><div className="section-heading"><div><p className="eyebrow">PODCASTS & MEDIA</p><h2>Listen to<br/><em>the longer conversation.</em></h2></div><p>AI, talent and the changing people function—explored beyond the headline.</p></div>{media.map(item=><article className="podcast-feature" key={item.title}><div className="podcast-art"><span className="eyebrow">VALUEMATRIX TV</span><div className="soundwave" aria-hidden="true">{Array.from({length:23},(_,i)=><i key={i} style={{height:`${20+((i*37)%90)}px`}}/>)}</div><p>THE END<br/>OF <em>RESUMES?</em></p><span>IN CONVERSATION WITH SHIVENDRA PRATAP SINGH</span></div><div className="podcast-copy"><p className="eyebrow">FEATURED CONVERSATION</p><h3>{item.title}</h3><p>{item.description}</p><a className="button button-primary" href={item.primaryLink.href} target="_blank" rel="noopener noreferrer">▶ {item.primaryLink.label}</a><div className="podcast-platforms">{[...item.secondaryLinks,...item.tertiaryLinks].map(link=><a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div></div></article>)}</section>
+      <section className="wrap iim-podcast-section" aria-labelledby="iim-podcast-title"><article className="iim-podcast-card"><a className="iim-podcast-image" href="https://youtu.be/XJYoojv90Kg?si=gTX1DGz_9E5eS_BI" target="_blank" rel="noopener noreferrer" aria-label="Watch Shivendra’s IIM Raipur podcast on YouTube"><Image src="/images/iim-raipur-podcast.png" alt="Shivendra Pratap Singh in conversation with a student at IIM Raipur" fill sizes="(max-width:760px) 90vw, 55vw"/><span className="video-play" aria-hidden="true">▶</span></a><div className="iim-podcast-copy"><p className="eyebrow">IIM RAIPUR / STUDENT CONVERSATION</p><h3 id="iim-podcast-title">In conversation<br/>at IIM Raipur.</h3><p>A podcast conversation with a student at the Indian Institute of Management Raipur.</p><a className="button button-primary" href="https://youtu.be/XJYoojv90Kg?si=gTX1DGz_9E5eS_BI" target="_blank" rel="noopener noreferrer">Watch the conversation ↗</a></div></article></section>
+      <section className="restored-quotes wrap" aria-label="Leadership philosophy"><p className="eyebrow">A PERSONAL PHILOSOPHY</p><QuoteCarousel/></section>
+      <section id="contact" className="contact-section"><div className="wrap contact-layout"><div><p className="eyebrow">LET’S BUILD SOMETHING USEFUL</p><h2>What’s the workflow<br/>you want to <em>improve?</em></h2><p>Tell me what your team is trying to do, where the friction is, and what a better outcome would look like.</p><p className="contact-note">A focused starting point is enough.<br/>You don’t need a complete AI strategy to begin.</p><a className="text-link" href={socials[0].href} target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div><ContactForm/></div></section>
+      <SocialLinks/>
+    </main><footer className="wrap site-footer"><a className="brand" href="#top">Shivendra<span>.ai</span></a><p>Shivendra Pratap Singh · Applied AI, with purpose.</p><span>© {new Date().getFullYear()}</span></footer>
+  </>;
 }

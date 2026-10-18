@@ -10,9 +10,17 @@ export default function PresenceGallery({ items }) {
     if (activeIndex === null) return undefined;
 
     const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement;
+    document.querySelector(".lightbox-close")?.focus();
     document.body.style.overflow = "hidden";
 
     function handleKeydown(event) {
+      if (event.key === "Tab") {
+        const buttons = [...document.querySelectorAll(".lightbox button")];
+        const first = buttons[0], last = buttons[buttons.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
       if (event.key === "Escape") {
         setActiveIndex(null);
       }
@@ -30,6 +38,7 @@ export default function PresenceGallery({ items }) {
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
       window.removeEventListener("keydown", handleKeydown);
     };
   }, [activeIndex, items.length]);

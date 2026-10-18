@@ -3,26 +3,26 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://shivendra.ai"),
   title: {
-    default: "Shivendra Pratap Singh | AI-in-HR Thought Leader",
+    default: "Shivendra Pratap Singh | AI Implementation Consultant & Builder",
     template: "%s | Shivendra Pratap Singh"
   },
   description:
-    "Chief People Officer, AI-in-HR thought leader, and speaker building high-performance organizations in the age of AI.",
+    "Practical AI consulting for people operations, internal knowledge and business workflows. Explore the approach and discuss your AI use case.",
   keywords: [
     "Shivendra Pratap Singh",
     "Shivendra.ai",
     "Chief People Officer",
     "AI in HR",
-    "HR technology speaker",
+    "AI implementation consulting",
     "people leadership",
     "Ergode"
   ],
   authors: [{ name: "Shivendra Pratap Singh" }],
   creator: "Shivendra Pratap Singh",
   openGraph: {
-    title: "Shivendra Pratap Singh | AI-in-HR Thought Leader",
+    title: "Shivendra Pratap Singh | AI Implementation Consultant & Builder",
     description:
-      "Chief People Officer, speaker, and builder at the intersection of People, Technology, and Leadership.",
+      "Turn AI opportunities into practical solutions with Shivendra Pratap Singh.",
     url: "https://shivendra.ai",
     siteName: "Shivendra.ai",
     images: [
@@ -38,9 +38,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shivendra Pratap Singh | AI-in-HR Thought Leader",
+    title: "Shivendra Pratap Singh | AI Implementation Consultant & Builder",
     description:
-      "Chief People Officer, speaker, and builder at the intersection of People, Technology, and Leadership.",
+      "Turn AI opportunities into practical solutions with Shivendra Pratap Singh.",
     images: ["/images/hero-profile.jpg"]
   },
   alternates: {
