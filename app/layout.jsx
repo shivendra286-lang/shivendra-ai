@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  verification: { google: "AwhqQnQP9iHFAp8nahc5wMk9bIC7jN4AK1eK_-mBIVk" },
+  verification: { google: "AwhqQnQP9iHFAp8nahc5wMk9bIC7jN4AK1eK_-mBIVk", other: { "msvalidate.01": "1659D814430149AE9B709B0D866F5083" } },
   metadataBase: new URL("https://www.shivendra.ai"),
   title: {
     default: "Shivendra Pratap Singh | AI Implementation Consultant & Builder",
